@@ -95,6 +95,45 @@ const projects = [
     metric: 'Analytics platform',
     image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop&auto=format',
   },
+  {
+    id: 8,
+    title: 'Aqar Chat',
+    category: 'AI/ML',
+    size: 'large',
+    tags: ['WhatsApp API', 'Gemini', 'GPT', 'Lead Qualification'],
+    description:
+      'AI-powered WhatsApp real estate assistant built on the Meta WhatsApp Business API. Uses Google Gemini and OpenAI GPT to understand client requirements, recommend properties, answer questions, qualify leads, and schedule visits — connecting buyers and renters with the right brokers.',
+    tech: ['WhatsApp Business API', 'Google Gemini', 'OpenAI GPT', 'Node.js'],
+    result: 'Jan 2026–Present',
+    metric: 'Soft Blue Ocean',
+    image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=900&h=600&fit=crop&auto=format',
+  },
+  {
+    id: 9,
+    title: 'MaaQraah',
+    category: 'AI/ML',
+    size: 'medium',
+    tags: ['Speech-to-Text', 'Prompt Engineering', 'Zoom API'],
+    description:
+      'AI-powered Quran learning platform analyzing recitation with speech-to-text models, generating personalized feedback and automated tests. Designed the backend architecture, built the AI recitation-analysis and assessment system, integrated Zoom for live classes, and managed production deployment.',
+    tech: ['Python', 'Speech-to-Text AI', 'Zoom API', 'Prompt Engineering'],
+    result: 'Nov 2025–Present',
+    metric: 'Soft Blue Ocean',
+    image: 'https://images.unsplash.com/photo-1609599006353-e629aaabfeae?w=700&h=500&fit=crop&auto=format',
+  },
+  {
+    id: 10,
+    title: 'Waqood Amin (MVP)',
+    category: 'Backend',
+    size: 'small',
+    tags: ['Prototype', 'Geolocation'],
+    description:
+      'Prototype app for tracking gas stations across Saudi Arabia, giving drivers real-time location, availability, and service information.',
+    tech: ['Backend API', 'Geolocation'],
+    result: 'MVP Prototype',
+    metric: 'Jan–May 2024',
+    image: 'https://images.unsplash.com/photo-1545262810-77515befe149?w=600&h=400&fit=crop&auto=format',
+  },
 ]
 
 const filters = ['All', 'AI/ML', 'Backend', 'FinTech', 'Research']

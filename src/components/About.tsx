@@ -69,7 +69,7 @@ const timeline = [
   },
 ]
 
-const achievements = [
+export const achievements = [
   { icon: Award, label: 'Speaker, Google Solution Challenge 2023', sub: 'AUC' },
   { icon: Mic2, label: 'CS50x Educator', sub: 'Harvard Arabic Program, 2015–2021' },
   { icon: BookOpen, label: 'MSc Thesis in Progress', sub: 'Pedestrian Intention Prediction — LSTM & LLM Fine-Tuning' },

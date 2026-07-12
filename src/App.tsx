@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
 import { useEffect } from 'react'
 import Layout from './components/Layout'
 import Hero from './components/Hero'
+import AboutHighlight from './components/AboutHighlight'
 import Portfolio from './components/Portfolio'
 import Consulting from './components/Consulting'
 import Workshops from './components/Workshops'
@@ -26,7 +27,15 @@ export default function App() {
       <ScrollToTop />
       <Routes>
         <Route element={<Layout />}>
-          <Route path="/" element={<Hero />} />
+          <Route
+            path="/"
+            element={
+              <>
+                <Hero />
+                <AboutHighlight />
+              </>
+            }
+          />
           <Route path="/portfolio" element={<Portfolio />} />
           <Route path="/consulting" element={<Consulting />} />
           <Route path="/workshops" element={<Workshops />} />

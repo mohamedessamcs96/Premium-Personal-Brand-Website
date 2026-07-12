@@ -249,7 +249,7 @@ export default function Hero() {
 
       {/* Scroll hint */}
       <motion.button
-        onClick={() => navigate('/portfolio')}
+        onClick={() => document.getElementById('about-highlight')?.scrollIntoView({ behavior: 'smooth' })}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.4 }}
