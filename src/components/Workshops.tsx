@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { useNavigate } from 'react-router-dom'
 import { Clock, Users, BookOpen, Building2, ChevronRight } from 'lucide-react'
 import SectionHeader from './SectionHeader'
 
@@ -101,8 +102,8 @@ const levelColor: Record<string, string> = {
 }
 
 export default function Workshops() {
-  const scrollToContact = () =>
-    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })
+  const navigate = useNavigate()
+  const scrollToContact = () => navigate('/contact')
 
   return (
     <section id="workshops" className="py-24 bg-white">

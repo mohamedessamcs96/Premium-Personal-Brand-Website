@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { useNavigate } from 'react-router-dom'
 import { Star, ArrowRight, Quote, Briefcase, Code2, Brain, GraduationCap, Rocket, Search } from 'lucide-react'
 import SectionHeader from './SectionHeader'
 
@@ -72,8 +73,8 @@ const testimonials = [
 ]
 
 export default function Mentoring() {
-  const scrollToContact = () =>
-    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })
+  const navigate = useNavigate()
+  const scrollToContact = () => navigate('/contact')
 
   return (
     <section id="mentoring" className="py-24 bg-white">

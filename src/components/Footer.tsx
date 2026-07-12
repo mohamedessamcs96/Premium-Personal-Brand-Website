@@ -1,23 +1,24 @@
+import { Link } from 'react-router-dom'
 import { Code2, Users, PlayCircle, Mail } from 'lucide-react'
 
 const links = {
   services: [
-    { label: 'AI Consulting', href: '#consulting' },
-    { label: 'Workshops', href: '#workshops' },
-    { label: 'Online Courses', href: '#courses' },
-    { label: 'Mentoring', href: '#mentoring' },
-    { label: 'Speaking', href: '#contact' },
+    { label: 'AI Consulting', href: '/consulting' },
+    { label: 'Workshops', href: '/workshops' },
+    { label: 'Online Courses', href: '/courses' },
+    { label: 'Mentoring', href: '/mentoring' },
+    { label: 'Speaking', href: '/contact' },
   ],
   content: [
-    { label: 'Portfolio', href: '#portfolio' },
-    { label: 'Video Series', href: '#videos' },
-    { label: 'Articles', href: '#articles' },
-    { label: 'Research', href: '#about' },
+    { label: 'Portfolio', href: '/portfolio' },
+    { label: 'Video Series', href: '/videos' },
+    { label: 'Articles', href: '/articles' },
+    { label: 'Research', href: '/about' },
   ],
   connect: [
-    { label: 'Contact Me', href: '#contact' },
-    { label: 'Book a Call', href: '#contact' },
-    { label: 'Newsletter', href: '#contact' },
+    { label: 'Contact Me', href: '/contact' },
+    { label: 'Book a Call', href: '/contact' },
+    { label: 'Newsletter', href: '/contact' },
   ],
 }
 
@@ -27,11 +28,6 @@ const socials = [
   { icon: PlayCircle, href: 'https://www.youtube.com/watch?v=yss5QplqsvU', label: 'YouTube' },
   { icon: Mail, href: 'mailto:mhmd96.essam@gmail.com', label: 'Email' },
 ]
-
-const scrollTo = (href: string) => {
-  const id = href.replace('#', '')
-  document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
-}
 
 export default function Footer() {
   return (
@@ -74,12 +70,12 @@ export default function Footer() {
             <ul className="space-y-2.5">
               {links.services.map(({ label, href }) => (
                 <li key={label}>
-                  <button
-                    onClick={() => scrollTo(href)}
+                  <Link
+                    to={href}
                     className="text-sm hover:text-white transition-colors"
                   >
                     {label}
-                  </button>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -89,12 +85,12 @@ export default function Footer() {
             <ul className="space-y-2.5">
               {links.content.map(({ label, href }) => (
                 <li key={label}>
-                  <button
-                    onClick={() => scrollTo(href)}
+                  <Link
+                    to={href}
                     className="text-sm hover:text-white transition-colors"
                   >
                     {label}
-                  </button>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -104,12 +100,12 @@ export default function Footer() {
             <ul className="space-y-2.5">
               {links.connect.map(({ label, href }) => (
                 <li key={label}>
-                  <button
-                    onClick={() => scrollTo(href)}
+                  <Link
+                    to={href}
                     className="text-sm hover:text-white transition-colors"
                   >
                     {label}
-                  </button>
+                  </Link>
                 </li>
               ))}
             </ul>

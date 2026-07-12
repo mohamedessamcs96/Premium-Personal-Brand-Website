@@ -1,49 +1,32 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { Menu, X, Calendar, Sparkles } from 'lucide-react'
 
 const navLinks = [
-  { label: 'Home', href: 'home' },
-  { label: 'Portfolio', href: 'portfolio' },
-  { label: 'Consulting', href: 'consulting' },
-  { label: 'Workshops', href: 'workshops' },
-  { label: 'Courses', href: 'courses' },
-  { label: 'Mentoring', href: 'mentoring' },
-  { label: 'Videos', href: 'videos' },
-  { label: 'Articles', href: 'articles' },
-  { label: 'About', href: 'about' },
-  { label: 'Contact', href: 'contact' },
+  { label: 'Home', href: '/' },
+  { label: 'Portfolio', href: '/portfolio' },
+  { label: 'Consulting', href: '/consulting' },
+  { label: 'Workshops', href: '/workshops' },
+  { label: 'Courses', href: '/courses' },
+  { label: 'Mentoring', href: '/mentoring' },
+  { label: 'Videos', href: '/videos' },
+  { label: 'Articles', href: '/articles' },
+  { label: 'About', href: '/about' },
+  { label: 'Contact', href: '/contact' },
 ]
 
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
-  const [activeSection, setActiveSection] = useState('home')
+  const { pathname } = useLocation()
+  const navigate = useNavigate()
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40)
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
-
-  useEffect(() => {
-    const sections = navLinks.map(({ href }) => document.getElementById(href)).filter(Boolean)
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) setActiveSection(entry.target.id)
-        })
-      },
-      { threshold: 0.25 }
-    )
-    sections.forEach((el) => el && observer.observe(el))
-    return () => observer.disconnect()
-  }, [])
-
-  const scrollTo = (id: string) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
-    setMobileOpen(false)
-  }
 
   return (
     <motion.nav
@@ -59,7 +42,7 @@ export default function Nav() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-[60px]">
           {/* Logo */}
-          <button onClick={() => scrollTo('home')} className="flex items-center gap-2.5 shrink-0">
+          <Link to="/" className="flex items-center gap-2.5 shrink-0">
             <div className="w-8 h-8 rounded-xl bg-brand flex items-center justify-center text-white font-extrabold text-xs font-mono shadow-sm shadow-brand/30 hover:shadow-brand/50 transition-shadow">
               ME
             </div>
@@ -71,35 +54,35 @@ export default function Nav() {
                 AI Engineer & Consultant
               </div>
             </div>
-          </button>
+          </Link>
 
           {/* Desktop nav */}
           <div className="hidden lg:flex items-center gap-0.5">
             {navLinks.map(({ label, href }) => (
-              <button
+              <Link
                 key={href}
-                onClick={() => scrollTo(href)}
+                to={href}
                 className={`relative px-3 py-1.5 text-[13px] font-semibold rounded-xl transition-all duration-200 ${
-                  activeSection === href
+                  pathname === href
                     ? 'text-brand'
                     : 'text-text-secondary hover:text-text-primary hover:bg-gray-50'
                 }`}
               >
                 {label}
-                {activeSection === href && (
+                {pathname === href && (
                   <motion.div
                     layoutId="nav-underline"
                     className="absolute bottom-0.5 left-3 right-3 h-0.5 rounded-full bg-brand"
                   />
                 )}
-              </button>
+              </Link>
             ))}
           </div>
 
           {/* CTA + mobile */}
           <div className="flex items-center gap-2">
             <button
-              onClick={() => scrollTo('contact')}
+              onClick={() => navigate('/contact')}
               className="hidden sm:flex items-center gap-1.5 bg-brand text-white px-4 py-2 rounded-xl text-[13px] font-bold hover:bg-brand-hover transition-all duration-200 hover:shadow-lg hover:shadow-brand/25 hover:-translate-y-0.5 active:translate-y-0"
             >
               <Sparkles size={13} />
@@ -127,20 +110,24 @@ export default function Nav() {
           >
             <div className="px-4 py-3 flex flex-col gap-1">
               {navLinks.map(({ label, href }) => (
-                <button
+                <Link
                   key={href}
-                  onClick={() => scrollTo(href)}
+                  to={href}
+                  onClick={() => setMobileOpen(false)}
                   className={`text-left px-4 py-2.5 text-sm font-semibold rounded-xl transition-all ${
-                    activeSection === href
+                    pathname === href
                       ? 'text-brand bg-brand-light'
                       : 'text-text-secondary hover:text-brand hover:bg-brand-light'
                   }`}
                 >
                   {label}
-                </button>
+                </Link>
               ))}
               <button
-                onClick={() => scrollTo('contact')}
+                onClick={() => {
+                  setMobileOpen(false)
+                  navigate('/contact')
+                }}
                 className="mt-2 flex items-center justify-center gap-2 bg-brand text-white px-4 py-3 rounded-2xl text-sm font-bold hover:bg-brand-hover transition-all"
               >
                 <Calendar size={14} />

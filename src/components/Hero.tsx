@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { motion, type Variants } from 'framer-motion'
+import { useNavigate } from 'react-router-dom'
 import {
   ArrowRight,
   ChevronDown,
@@ -81,8 +82,7 @@ const stagger: Variants = {
 }
 
 export default function Hero() {
-  const scrollTo = (id: string) =>
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
+  const navigate = useNavigate()
 
   return (
     <section id="home" className="relative min-h-screen flex flex-col justify-center overflow-hidden bg-white noise-texture">
@@ -164,7 +164,7 @@ export default function Hero() {
             {/* CTAs */}
             <motion.div variants={fadeUp} className="flex flex-wrap gap-3 mb-12">
               <button
-                onClick={() => scrollTo('contact')}
+                onClick={() => navigate('/contact')}
                 className="group flex items-center gap-2.5 bg-brand text-white px-7 py-3.5 rounded-2xl text-sm font-bold hover:bg-brand-hover transition-all duration-200 hover:shadow-xl hover:shadow-brand/30 hover:-translate-y-0.5 active:translate-y-0"
               >
                 <Sparkles size={16} />
@@ -172,7 +172,7 @@ export default function Hero() {
                 <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform duration-200" />
               </button>
               <button
-                onClick={() => scrollTo('portfolio')}
+                onClick={() => navigate('/portfolio')}
                 className="flex items-center gap-2.5 bg-white text-brand border-2 border-brand/20 px-7 py-3.5 rounded-2xl text-sm font-bold hover:border-brand hover:bg-brand-light transition-all duration-200 hover:-translate-y-0.5"
               >
                 <ExternalLink size={15} />
@@ -249,7 +249,7 @@ export default function Hero() {
 
       {/* Scroll hint */}
       <motion.button
-        onClick={() => scrollTo('portfolio')}
+        onClick={() => navigate('/portfolio')}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.4 }}

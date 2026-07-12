@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { useNavigate } from 'react-router-dom'
 import {
   Brain,
   Layers,
@@ -98,8 +99,8 @@ const services = [
 ]
 
 export default function Consulting() {
-  const scrollToContact = () =>
-    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })
+  const navigate = useNavigate()
+  const scrollToContact = () => navigate('/contact')
 
   return (
     <section id="consulting" className="py-24 section-alt">
