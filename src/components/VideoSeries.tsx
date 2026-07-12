@@ -5,18 +5,19 @@ import { Play, Clock, BookOpen, ChevronRight } from 'lucide-react'
 const series = [
   {
     id: 1,
-    title: 'AI Engineering Masterclass',
-    subtitle: 'From Zero to Production',
-    episodes: 24,
-    hours: '18h',
-    status: 'Complete',
+    title: 'Can We Borrow a Brain?',
+    subtitle: 'هل ممكن نستعير عقل؟',
+    episodes: 1,
+    hours: 'Full Talk',
+    status: 'Live',
     description:
-      'The definitive guide to building production AI systems. Covers LLMs, RAG, agents, fine-tuning, evaluation, and deployment — everything you need to become a serious AI engineer.',
+      'A bilingual (Arabic & English) talk by Mohamed Essam on AI and the human mind — watch the full video on YouTube.',
     image: 'https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=480&h=680&fit=crop&auto=format',
-    tag: 'Most Watched',
+    tag: 'Watch Now',
     tagColor: 'bg-amber-500',
-    views: '48K views',
+    views: 'Watch on YouTube',
     featured: true,
+    href: 'https://www.youtube.com/watch?v=yss5QplqsvU',
   },
   {
     id: 2,
@@ -202,39 +203,42 @@ export default function VideoSeries() {
                   </motion.div>
                 )}
               </AnimatePresence>
-              <button className="flex items-center gap-2 bg-white text-brand px-5 py-2.5 rounded-xl font-bold text-sm hover:bg-brand-light transition-colors">
+              <a
+                href={featured.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 bg-white text-brand px-5 py-2.5 rounded-xl font-bold text-sm hover:bg-brand-light transition-colors w-fit"
+              >
                 <Play size={14} className="fill-brand" />
-                Watch Series
-              </button>
+                Watch on YouTube
+              </a>
             </div>
           </div>
 
-          {/* Right side — episode list */}
-          <div className="lg:col-span-3 flex flex-col gap-3 justify-center">
+          {/* Right side — about the video */}
+          <div className="lg:col-span-3 flex flex-col gap-4 justify-center">
             <p className="text-white/40 text-xs font-semibold uppercase tracking-wider mb-1 font-mono">
-              Featured Episodes
+              Latest Video
             </p>
-            {[1, 2, 3, 4, 5].map((ep) => (
-              <motion.div
-                key={ep}
-                initial={{ opacity: 0, x: 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: ep * 0.05 }}
-                className="group flex items-center gap-4 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-brand/40 rounded-2xl p-4 cursor-pointer transition-all"
-              >
-                <div className="w-10 h-10 rounded-xl bg-brand/20 flex items-center justify-center flex-shrink-0 group-hover:bg-brand transition-colors">
-                  <Play size={14} className="text-brand group-hover:text-white transition-colors fill-current" />
-                </div>
-                <div className="flex-1 min-w-0">
-                  <div className="text-white text-sm font-semibold">
-                    Episode {ep}: {['LLM Fundamentals', 'Building RAG Pipelines', 'Agent Architectures', 'Fine-tuning Models', 'Production Deployment'][ep - 1]}
-                  </div>
-                  <div className="text-white/40 text-xs mt-0.5 font-mono">{['45min', '62min', '55min', '78min', '90min'][ep - 1]} • Free preview</div>
-                </div>
-                <ChevronRight size={16} className="text-white/30 group-hover:text-brand transition-colors flex-shrink-0" />
-              </motion.div>
-            ))}
+            <motion.a
+              href={featured.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="group flex items-center gap-4 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-brand/40 rounded-2xl p-5 cursor-pointer transition-all"
+            >
+              <div className="w-12 h-12 rounded-xl bg-brand/20 flex items-center justify-center flex-shrink-0 group-hover:bg-brand transition-colors">
+                <Play size={18} className="text-brand group-hover:text-white transition-colors fill-current" />
+              </div>
+              <div className="flex-1 min-w-0">
+                <div className="text-white text-sm font-semibold">{featured.title}</div>
+                <div className="text-white/50 text-sm">{featured.subtitle}</div>
+                <div className="text-white/40 text-xs mt-1 font-mono">Arabic &amp; English • Watch now</div>
+              </div>
+              <ChevronRight size={16} className="text-white/30 group-hover:text-brand transition-colors flex-shrink-0" />
+            </motion.a>
           </div>
         </motion.div>
 

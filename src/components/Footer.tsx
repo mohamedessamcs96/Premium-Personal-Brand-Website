@@ -1,4 +1,4 @@
-import { Code2, Users, PlayCircle, MessageCircle, Mail } from 'lucide-react'
+import { Code2, Users, PlayCircle, Mail } from 'lucide-react'
 
 const links = {
   services: [
@@ -22,11 +22,10 @@ const links = {
 }
 
 const socials = [
-  { icon: Code2, href: '#', label: 'GitHub' },
-  { icon: Users, href: '#', label: 'LinkedIn' },
-  { icon: PlayCircle, href: '#', label: 'YouTube' },
-  { icon: MessageCircle, href: '#', label: 'X / Twitter' },
-  { icon: Mail, href: 'mailto:hello@mohamedessam.dev', label: 'Email' },
+  { icon: Code2, href: 'https://github.com/mohamedessamcs96', label: 'GitHub' },
+  { icon: Users, href: 'https://linkedin.com/in/mhmdessam96/', label: 'LinkedIn' },
+  { icon: PlayCircle, href: 'https://www.youtube.com/watch?v=yss5QplqsvU', label: 'YouTube' },
+  { icon: Mail, href: 'mailto:mhmd96.essam@gmail.com', label: 'Email' },
 ]
 
 const scrollTo = (href: string) => {
@@ -58,6 +57,8 @@ export default function Footer() {
                 <a
                   key={label}
                   href={href}
+                  target={href.startsWith('http') ? '_blank' : undefined}
+                  rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
                   aria-label={label}
                   className="w-9 h-9 rounded-xl bg-white/5 hover:bg-brand/80 hover:text-white flex items-center justify-center transition-all duration-200 text-white/50"
                 >

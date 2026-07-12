@@ -18,36 +18,36 @@ const quickLinks = [
   {
     icon: Calendar,
     title: 'Book a Free Call',
-    sub: '30-min discovery call on Calendly',
+    sub: '30-min discovery call',
     href: '#',
     primary: true,
   },
   {
     icon: Mail,
     title: 'Email Me',
-    sub: 'hello@mohamedessam.dev',
-    href: 'mailto:hello@mohamedessam.dev',
+    sub: 'mhmd96.essam@gmail.com',
+    href: 'mailto:mhmd96.essam@gmail.com',
     primary: false,
   },
   {
     icon: Users,
     title: 'LinkedIn',
-    sub: '/in/mohamedessam-ai',
-    href: '#',
+    sub: 'linkedin.com/in/mhmdessam96',
+    href: 'https://linkedin.com/in/mhmdessam96/',
     primary: false,
   },
   {
     icon: Code2,
     title: 'GitHub',
-    sub: 'github.com/mohamedessam-ai',
-    href: '#',
+    sub: 'github.com/mohamedessamcs96',
+    href: 'https://github.com/mohamedessamcs96',
     primary: false,
   },
   {
     icon: PlayCircle,
     title: 'YouTube',
-    sub: '150K+ subscribers',
-    href: '#',
+    sub: 'Watch my video series',
+    href: 'https://www.youtube.com/watch?v=yss5QplqsvU',
     primary: false,
   },
 ]
@@ -116,7 +116,7 @@ export default function Contact() {
               </p>
               <div className="flex items-center gap-2 text-xs text-white/60">
                 <MapPin size={12} />
-                Cairo, Egypt · Remote & On-site Worldwide
+                Berlin, Germany · Remote & On-site Worldwide
               </div>
             </motion.div>
 
@@ -137,6 +137,8 @@ export default function Contact() {
                 <motion.a
                   key={title}
                   href={href}
+                  target={href.startsWith('http') ? '_blank' : undefined}
+                  rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
                   initial={{ opacity: 0, x: -16 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}

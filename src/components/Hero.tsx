@@ -13,27 +13,27 @@ import {
 } from 'lucide-react'
 
 const stats = [
-  { value: 8, suffix: '+', label: 'Years Experience' },
-  { value: 50, suffix: '+', label: 'AI Projects' },
-  { value: 30, suffix: '+', label: 'Workshops' },
-  { value: 200, suffix: '+', label: 'Students' },
-  { value: 15, suffix: '+', label: 'Research Papers' },
+  { value: 6, suffix: '+', label: 'Years Experience' },
+  { value: 12, suffix: '+', label: 'Companies & Clients' },
+  { value: 4, suffix: '+', label: 'Years in Research' },
+  { value: 92, suffix: '%', label: 'AI Model Accuracy' },
+  { value: 3, suffix: '', label: 'Languages Spoken' },
 ]
 
 const floatingCards = [
-  { icon: Brain, label: 'AI Consulting', color: 'bg-emerald-50', iconColor: 'text-brand', delay: 0 },
+  { icon: Brain, label: 'LLM Fine-Tuning', color: 'bg-emerald-50', iconColor: 'text-brand', delay: 0 },
   { icon: Code2, label: 'Backend Systems', color: 'bg-blue-50', iconColor: 'text-blue-600', delay: 0.3 },
-  { icon: GraduationCap, label: 'Education', color: 'bg-violet-50', iconColor: 'text-violet-600', delay: 0.6 },
-  { icon: Mic2, label: 'Speaking', color: 'bg-amber-50', iconColor: 'text-amber-600', delay: 0.9 },
-  { icon: BookOpen, label: 'Research', color: 'bg-rose-50', iconColor: 'text-rose-600', delay: 1.2 },
+  { icon: GraduationCap, label: 'Research', color: 'bg-violet-50', iconColor: 'text-violet-600', delay: 0.6 },
+  { icon: Mic2, label: 'Computer Vision', color: 'bg-amber-50', iconColor: 'text-amber-600', delay: 0.9 },
+  { icon: BookOpen, label: 'Teaching', color: 'bg-rose-50', iconColor: 'text-rose-600', delay: 1.2 },
 ]
 
 const titles = [
   'Senior Software Engineer',
   'AI Engineer',
-  'Tech Consultant',
-  'Researcher',
-  'Educator',
+  'Backend Developer',
+  'Research Assistant',
+  'CS50 Educator',
 ]
 
 function AnimatedCounter({ target, suffix }: { target: number; suffix: string }) {
@@ -154,10 +154,11 @@ export default function Hero() {
               variants={fadeUp}
               className="text-xl sm:text-2xl text-text-secondary leading-[1.55] max-w-xl mb-9 font-light"
             >
-              I help companies{' '}
-              <span className="font-semibold text-brand">build AI-powered products</span>, train
-              engineering teams, and mentor developers to become{' '}
-              <span className="font-semibold text-brand">world-class engineers</span>.
+              I build{' '}
+              <span className="font-semibold text-brand">scalable backend systems</span> and
+              integrate AI into production — working with GPT, Claude, and Gemini, fine-tuning
+              LLMs, and shipping real{' '}
+              <span className="font-semibold text-brand">computer vision products</span>.
             </motion.p>
 
             {/* CTAs */}
