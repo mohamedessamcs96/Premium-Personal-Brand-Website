@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=JetBrains+Mono:ital,wght@0,400;0,500;1,400&display=swap');
+@import 'tailwindcss';
+
+@theme {
+  --font-sans: 'Plus Jakarta Sans', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --color-brand: #00441B;
+  --color-brand-hover: #00561f;
+  --color-brand-light: #EAF6EF;
+  --color-brand-accent: #2E8B57;
+  --color-brand-muted: #d1fae5;
+  --color-surface: #F7FAF8;
+  --color-border: #E5E7EB;
+  --color-text-primary: #111827;
+  --color-text-secondary: #4B5563;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: #ffffff;
+  color: #111827;
+}
+
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #bbf7d0; border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: #2E8B57; }
+
+/* Card hover lift */
+.card-hover {
+  transition: transform 0.25s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.25s ease, border-color 0.2s ease;
+}
+.card-hover:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 60px rgba(0,68,27,0.12);
+  border-color: #00441B !important;
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(130deg, #00441B 0%, #2E8B57 55%, #34d399 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Glass */
+.glass {
+  background: rgba(255,255,255,0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,0.4);
+}
+
+.glass-dark {
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+/* Hero orb */
+.hero-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  opacity: 0.12;
+  pointer-events: none;
+  animation: float-orb 8s ease-in-out infinite;
+}
+.hero-orb-2 {
+  animation-delay: -4s;
+}
+
+@keyframes float-orb {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-30px) scale(1.05); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.animate-float { animation: float 3.5s ease-in-out infinite; }
+.animate-float-slow { animation: float 5s ease-in-out infinite; }
+
+/* Poster overlay */
+.poster-overlay {
+  background: linear-gradient(to top, rgba(0,68,27,0.96) 0%, rgba(0,40,16,0.6) 50%, transparent 100%);
+}
+
+/* Section alternating bg */
+.section-alt { background-color: #F7FAF8; }
+
+/* Noise texture for hero */
+.noise-texture {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+}
+
+/* Bento card highlight */
+.bento-highlight {
+  background: linear-gradient(135deg, #EAF6EF 0%, #ffffff 100%);
+  border: 1px solid #c6e9d4;
+}
+
+/* Tag badge */
+.tag-badge {
+  display: inline-flex;
+  align-items: center;
+  background: #EAF6EF;
+  color: #00441B;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-family: 'JetBrains Mono', monospace;
+}
