@@ -1,7 +1,7 @@
-import { motion } from 'framer-motion'
-import { Link } from 'react-router-dom'
-import { ArrowRight, MapPin } from 'lucide-react'
-import { achievements } from './About'
+import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+import { ArrowRight, MapPin } from "lucide-react";
+import { achievements } from "./About";
 
 export default function AboutHighlight() {
   return (
@@ -22,16 +22,20 @@ export default function AboutHighlight() {
               ABOUT
             </div>
             <h2 className="text-3xl sm:text-[40px] font-extrabold tracking-[-0.02em] leading-[1.1] mb-4">
-              Senior Software Engineer, <span className="text-brand-accent">AI Engineer</span> &amp; Researcher
+              Senior Software Engineer,{" "}
+              <span className="text-brand-accent">AI Engineer</span> &amp;
+              Researcher
             </h2>
             <p className="text-white/80 leading-relaxed mb-6 max-w-xl">
-              I build scalable backend systems and integrate AI into production applications —
-              working with GPT, Claude, and Gemini, fine-tuning LLMs and Vision-Language Models,
-              and researching pedestrian intention prediction at GIU.
+              I build scalable backend systems and integrate AI into production
+              applications — working with GPT, Claude, and Gemini, fine-tuning
+              LLMs and Vision-Language Models, and researching pedestrian
+              intention prediction at GIU.
             </p>
             <div className="flex items-center gap-2 text-sm text-white/60 mb-8">
               <MapPin size={14} />
-              Berlin, Germany · Currently Senior Software Engineer at Soft Blue Ocean
+              Berlin, Germany · Currently Senior Software Engineer at Soft Blue
+              Ocean
             </div>
             <Link
               to="/about"
@@ -45,7 +49,7 @@ export default function AboutHighlight() {
           {/* Right — highlights */}
           <div className="lg:col-span-2 grid grid-cols-1 gap-3 relative">
             {achievements.map((a, i) => {
-              const Icon = a.icon
+              const Icon = a.icon;
               return (
                 <motion.div
                   key={a.label}
@@ -59,15 +63,17 @@ export default function AboutHighlight() {
                     <Icon size={16} className="text-white" />
                   </div>
                   <div>
-                    <div className="text-sm font-bold text-white">{a.label}</div>
+                    <div className="text-sm font-bold text-white">
+                      {a.label}
+                    </div>
                     <div className="text-xs text-white/60">{a.sub}</div>
                   </div>
                 </motion.div>
-              )
+              );
             })}
           </div>
         </motion.div>
       </div>
     </section>
-  )
+  );
 }

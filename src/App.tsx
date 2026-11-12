@@ -1,24 +1,24 @@
-import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
-import { useEffect } from 'react'
-import Layout from './components/Layout'
-import Hero from './components/Hero'
-import AboutHighlight from './components/AboutHighlight'
-import Portfolio from './components/Portfolio'
-import Consulting from './components/Consulting'
-import Workshops from './components/Workshops'
-import Courses from './components/Courses'
-import Mentoring from './components/Mentoring'
-import VideoSeries from './components/VideoSeries'
-import Articles from './components/Articles'
-import About from './components/About'
-import Contact from './components/Contact'
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { useEffect } from "react";
+import Layout from "./components/Layout";
+import Hero from "./components/Hero";
+import AboutHighlight from "./components/AboutHighlight";
+import Portfolio from "./components/Portfolio";
+import Consulting from "./components/Consulting";
+import Workshops from "./components/Workshops";
+import Courses from "./components/Courses";
+import Mentoring from "./components/Mentoring";
+import VideoSeries from "./components/VideoSeries";
+import Articles from "./components/Articles";
+import About from "./components/About";
+import Contact from "./components/Contact";
 
 function ScrollToTop() {
-  const { pathname } = useLocation()
+  const { pathname } = useLocation();
   useEffect(() => {
-    window.scrollTo(0, 0)
-  }, [pathname])
-  return null
+    window.scrollTo(0, 0);
+  }, [pathname]);
+  return null;
 }
 
 export default function App() {
@@ -48,5 +48,5 @@ export default function App() {
         </Route>
       </Routes>
     </BrowserRouter>
-  )
+  );
 }

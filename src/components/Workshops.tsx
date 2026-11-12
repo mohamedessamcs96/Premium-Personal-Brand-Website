@@ -1,101 +1,149 @@
-import { motion } from 'framer-motion'
-import { useNavigate } from 'react-router-dom'
-import { Clock, Users, BookOpen, Building2, ChevronRight } from 'lucide-react'
-import SectionHeader from './SectionHeader'
+import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
+import { Clock, Users, BookOpen, Building2, ChevronRight } from "lucide-react";
+import SectionHeader from "./SectionHeader";
 
 const workshops = [
   {
-    title: 'AI for Developers',
-    image: 'https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=480&h=320&fit=crop&auto=format',
-    duration: '2 days',
-    audience: 'Software Engineers',
-    level: 'Intermediate',
-    outcomes: ['LLM fundamentals & APIs', 'Building AI-powered features', 'Prompt engineering basics', 'AI integration patterns'],
+    title: "AI for Developers",
+    image:
+      "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=480&h=320&fit=crop&auto=format",
+    duration: "2 days",
+    audience: "Software Engineers",
+    level: "Intermediate",
+    outcomes: [
+      "LLM fundamentals & APIs",
+      "Building AI-powered features",
+      "Prompt engineering basics",
+      "AI integration patterns",
+    ],
     labs: 3,
-    tag: 'Most Popular',
+    tag: "Most Popular",
   },
   {
-    title: 'Prompt Engineering Mastery',
-    image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=480&h=320&fit=crop&auto=format',
-    duration: '1 day',
-    audience: 'Developers & PMs',
-    level: 'All Levels',
-    outcomes: ['Prompt design patterns', 'Chain-of-thought techniques', 'Few-shot & zero-shot', 'Evaluation frameworks'],
+    title: "Prompt Engineering Mastery",
+    image:
+      "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=480&h=320&fit=crop&auto=format",
+    duration: "1 day",
+    audience: "Developers & PMs",
+    level: "All Levels",
+    outcomes: [
+      "Prompt design patterns",
+      "Chain-of-thought techniques",
+      "Few-shot & zero-shot",
+      "Evaluation frameworks",
+    ],
     labs: 4,
     tag: null,
   },
   {
-    title: 'Building AI Agents',
-    image: 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=480&h=320&fit=crop&auto=format',
-    duration: '2 days',
-    audience: 'Senior Engineers',
-    level: 'Advanced',
-    outcomes: ['Agent architectures', 'Tool use & MCP', 'Multi-agent orchestration', 'LangGraph & LangChain'],
+    title: "Building AI Agents",
+    image:
+      "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=480&h=320&fit=crop&auto=format",
+    duration: "2 days",
+    audience: "Senior Engineers",
+    level: "Advanced",
+    outcomes: [
+      "Agent architectures",
+      "Tool use & MCP",
+      "Multi-agent orchestration",
+      "LangGraph & LangChain",
+    ],
     labs: 5,
-    tag: 'New',
+    tag: "New",
   },
   {
-    title: 'GitHub Copilot & AI Dev Tools',
-    image: 'https://images.unsplash.com/photo-1607799279861-4dd421887fb3?w=480&h=320&fit=crop&auto=format',
-    duration: '1 day',
-    audience: 'Engineering Teams',
-    level: 'Beginner',
-    outcomes: ['Copilot workflow mastery', 'AI-assisted code review', 'Test generation', 'Documentation AI'],
+    title: "GitHub Copilot & AI Dev Tools",
+    image:
+      "https://images.unsplash.com/photo-1607799279861-4dd421887fb3?w=480&h=320&fit=crop&auto=format",
+    duration: "1 day",
+    audience: "Engineering Teams",
+    level: "Beginner",
+    outcomes: [
+      "Copilot workflow mastery",
+      "AI-assisted code review",
+      "Test generation",
+      "Documentation AI",
+    ],
     labs: 3,
     tag: null,
   },
   {
-    title: 'LLM APIs & Integration',
-    image: 'https://images.unsplash.com/photo-1516110833967-0b5716ca1387?w=480&h=320&fit=crop&auto=format',
-    duration: '1 day',
-    audience: 'Backend Engineers',
-    level: 'Intermediate',
-    outcomes: ['OpenAI & Anthropic APIs', 'Streaming responses', 'Function calling', 'Cost optimization'],
+    title: "LLM APIs & Integration",
+    image:
+      "https://images.unsplash.com/photo-1516110833967-0b5716ca1387?w=480&h=320&fit=crop&auto=format",
+    duration: "1 day",
+    audience: "Backend Engineers",
+    level: "Intermediate",
+    outcomes: [
+      "OpenAI & Anthropic APIs",
+      "Streaming responses",
+      "Function calling",
+      "Cost optimization",
+    ],
     labs: 4,
     tag: null,
   },
   {
-    title: 'Backend Best Practices',
-    image: 'https://images.unsplash.com/photo-1518432031352-d6fc5c10da5a?w=480&h=320&fit=crop&auto=format',
-    duration: '2 days',
-    audience: 'Backend Engineers',
-    level: 'Intermediate',
-    outcomes: ['API design principles', 'Database optimization', 'Caching strategies', 'Security patterns'],
+    title: "Backend Best Practices",
+    image:
+      "https://images.unsplash.com/photo-1518432031352-d6fc5c10da5a?w=480&h=320&fit=crop&auto=format",
+    duration: "2 days",
+    audience: "Backend Engineers",
+    level: "Intermediate",
+    outcomes: [
+      "API design principles",
+      "Database optimization",
+      "Caching strategies",
+      "Security patterns",
+    ],
     labs: 6,
     tag: null,
   },
   {
-    title: 'Docker & Kubernetes',
-    image: 'https://images.unsplash.com/photo-1605810230434-7631ac76ec81?w=480&h=320&fit=crop&auto=format',
-    duration: '3 days',
-    audience: 'DevOps & Engineers',
-    level: 'Intermediate',
-    outcomes: ['Container fundamentals', 'Kubernetes orchestration', 'Helm charts', 'CI/CD pipelines'],
+    title: "Docker & Kubernetes",
+    image:
+      "https://images.unsplash.com/photo-1605810230434-7631ac76ec81?w=480&h=320&fit=crop&auto=format",
+    duration: "3 days",
+    audience: "DevOps & Engineers",
+    level: "Intermediate",
+    outcomes: [
+      "Container fundamentals",
+      "Kubernetes orchestration",
+      "Helm charts",
+      "CI/CD pipelines",
+    ],
     labs: 8,
     tag: null,
   },
   {
-    title: 'System Design for Engineers',
-    image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=480&h=320&fit=crop&auto=format',
-    duration: '2 days',
-    audience: 'Mid–Senior Engineers',
-    level: 'Advanced',
-    outcomes: ['Scalability patterns', 'Database selection', 'Distributed systems', 'Trade-off analysis'],
+    title: "System Design for Engineers",
+    image:
+      "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=480&h=320&fit=crop&auto=format",
+    duration: "2 days",
+    audience: "Mid–Senior Engineers",
+    level: "Advanced",
+    outcomes: [
+      "Scalability patterns",
+      "Database selection",
+      "Distributed systems",
+      "Trade-off analysis",
+    ],
     labs: 5,
-    tag: 'Top Rated',
+    tag: "Top Rated",
   },
-]
+];
 
 const levelColor: Record<string, string> = {
-  Beginner: 'bg-green-100 text-green-700',
-  Intermediate: 'bg-blue-100 text-blue-700',
-  Advanced: 'bg-purple-100 text-purple-700',
-  'All Levels': 'bg-gray-100 text-gray-600',
-}
+  Beginner: "bg-green-100 text-green-700",
+  Intermediate: "bg-blue-100 text-blue-700",
+  Advanced: "bg-purple-100 text-purple-700",
+  "All Levels": "bg-gray-100 text-gray-600",
+};
 
 export default function Workshops() {
-  const navigate = useNavigate()
-  const scrollToContact = () => navigate('/contact')
+  const navigate = useNavigate();
+  const scrollToContact = () => navigate("/contact");
 
   return (
     <section id="workshops" className="py-24 bg-white">
@@ -134,10 +182,14 @@ export default function Workshops() {
               </div>
 
               <div className="p-5">
-                <h3 className="text-base font-bold text-text-primary mb-1">{w.title}</h3>
+                <h3 className="text-base font-bold text-text-primary mb-1">
+                  {w.title}
+                </h3>
 
                 <div className="flex flex-wrap gap-1.5 mb-3">
-                  <span className={`text-xs font-medium px-2 py-0.5 rounded-full ${levelColor[w.level]}`}>
+                  <span
+                    className={`text-xs font-medium px-2 py-0.5 rounded-full ${levelColor[w.level]}`}
+                  >
                     {w.level}
                   </span>
                 </div>
@@ -159,8 +211,14 @@ export default function Workshops() {
 
                 <ul className="space-y-1 mb-5">
                   {w.outcomes.map((o) => (
-                    <li key={o} className="flex items-start gap-1.5 text-xs text-text-secondary">
-                      <ChevronRight size={11} className="text-brand mt-0.5 flex-shrink-0" />
+                    <li
+                      key={o}
+                      className="flex items-start gap-1.5 text-xs text-text-secondary"
+                    >
+                      <ChevronRight
+                        size={11}
+                        className="text-brand mt-0.5 flex-shrink-0"
+                      />
                       {o}
                     </li>
                   ))}
@@ -199,5 +257,5 @@ export default function Workshops() {
         </motion.div>
       </div>
     </section>
-  )
+  );
 }

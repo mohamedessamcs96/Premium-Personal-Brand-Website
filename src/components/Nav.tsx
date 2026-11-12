@@ -1,32 +1,32 @@
-import { useState, useEffect } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
-import { Link, useLocation, useNavigate } from 'react-router-dom'
-import { Menu, X, Calendar, Sparkles } from 'lucide-react'
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Menu, X, Calendar, Sparkles } from "lucide-react";
 
 const navLinks = [
-  { label: 'Home', href: '/' },
-  { label: 'Portfolio', href: '/portfolio' },
-  { label: 'Consulting', href: '/consulting' },
-  { label: 'Workshops', href: '/workshops' },
-  { label: 'Courses', href: '/courses' },
-  { label: 'Mentoring', href: '/mentoring' },
-  { label: 'Videos', href: '/videos' },
-  { label: 'Articles', href: '/articles' },
-  { label: 'About', href: '/about' },
-  { label: 'Contact', href: '/contact' },
-]
+  { label: "Home", href: "/" },
+  { label: "Portfolio", href: "/portfolio" },
+  { label: "Consulting", href: "/consulting" },
+  { label: "Workshops", href: "/workshops" },
+  { label: "Courses", href: "/courses" },
+  { label: "Mentoring", href: "/mentoring" },
+  { label: "Videos", href: "/videos" },
+  { label: "Articles", href: "/articles" },
+  { label: "About", href: "/about" },
+  { label: "Contact", href: "/contact" },
+];
 
 export default function Nav() {
-  const [scrolled, setScrolled] = useState(false)
-  const [mobileOpen, setMobileOpen] = useState(false)
-  const { pathname } = useLocation()
-  const navigate = useNavigate()
+  const [scrolled, setScrolled] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const { pathname } = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40)
-    window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
-  }, [])
+    const onScroll = () => setScrolled(window.scrollY > 40);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
     <motion.nav
@@ -35,8 +35,8 @@ export default function Nav() {
       transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-400 ${
         scrolled
-          ? 'bg-white/95 backdrop-blur-xl shadow-sm border-b border-gray-100/80'
-          : 'bg-white/0'
+          ? "bg-white/95 backdrop-blur-xl shadow-sm border-b border-gray-100/80"
+          : "bg-white/0"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -64,8 +64,8 @@ export default function Nav() {
                 to={href}
                 className={`relative px-3 py-1.5 text-[13px] font-semibold rounded-xl transition-all duration-200 ${
                   pathname === href
-                    ? 'text-brand'
-                    : 'text-text-secondary hover:text-text-primary hover:bg-gray-50'
+                    ? "text-brand"
+                    : "text-text-secondary hover:text-text-primary hover:bg-gray-50"
                 }`}
               >
                 {label}
@@ -82,7 +82,7 @@ export default function Nav() {
           {/* CTA + mobile */}
           <div className="flex items-center gap-2">
             <button
-              onClick={() => navigate('/contact')}
+              onClick={() => navigate("/contact")}
               className="hidden sm:flex items-center gap-1.5 bg-brand text-white px-4 py-2 rounded-xl text-[13px] font-bold hover:bg-brand-hover transition-all duration-200 hover:shadow-lg hover:shadow-brand/25 hover:-translate-y-0.5 active:translate-y-0"
             >
               <Sparkles size={13} />
@@ -103,7 +103,7 @@ export default function Nav() {
         {mobileOpen && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
+            animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.22 }}
             className="lg:hidden bg-white border-t border-gray-100 overflow-hidden shadow-lg"
@@ -116,8 +116,8 @@ export default function Nav() {
                   onClick={() => setMobileOpen(false)}
                   className={`text-left px-4 py-2.5 text-sm font-semibold rounded-xl transition-all ${
                     pathname === href
-                      ? 'text-brand bg-brand-light'
-                      : 'text-text-secondary hover:text-brand hover:bg-brand-light'
+                      ? "text-brand bg-brand-light"
+                      : "text-text-secondary hover:text-brand hover:bg-brand-light"
                   }`}
                 >
                   {label}
@@ -125,8 +125,8 @@ export default function Nav() {
               ))}
               <button
                 onClick={() => {
-                  setMobileOpen(false)
-                  navigate('/contact')
+                  setMobileOpen(false);
+                  navigate("/contact");
                 }}
                 className="mt-2 flex items-center justify-center gap-2 bg-brand text-white px-4 py-3 rounded-2xl text-sm font-bold hover:bg-brand-hover transition-all"
               >
@@ -138,5 +138,5 @@ export default function Nav() {
         )}
       </AnimatePresence>
     </motion.nav>
-  )
+  );
 }

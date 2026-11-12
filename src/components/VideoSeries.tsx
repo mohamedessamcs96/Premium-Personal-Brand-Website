@@ -1,136 +1,144 @@
-import { useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
-import { Play, Clock, BookOpen, ChevronRight } from 'lucide-react'
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Play, Clock, BookOpen, ChevronRight } from "lucide-react";
 
 const series = [
   {
     id: 1,
-    title: 'Can We Borrow a Brain?',
-    subtitle: 'هل ممكن نستعير عقل؟',
+    title: "Can We Borrow a Brain?",
+    subtitle: "هل ممكن نستعير عقل؟",
     episodes: 1,
-    hours: 'Full Talk',
-    status: 'Live',
+    hours: "Full Talk",
+    status: "Live",
     description:
-      'A bilingual (Arabic & English) talk by Mohamed Essam on AI and the human mind — watch the full video on YouTube.',
-    image: 'https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=480&h=680&fit=crop&auto=format',
-    tag: 'Watch Now',
-    tagColor: 'bg-amber-500',
-    views: 'Watch on YouTube',
+      "A bilingual (Arabic & English) talk by Mohamed Essam on AI and the human mind — watch the full video on YouTube.",
+    image:
+      "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=480&h=680&fit=crop&auto=format",
+    tag: "Watch Now",
+    tagColor: "bg-amber-500",
+    views: "Watch on YouTube",
     featured: true,
-    href: 'https://www.youtube.com/watch?v=yss5QplqsvU',
+    href: "https://www.youtube.com/watch?v=yss5QplqsvU",
   },
   {
     id: 2,
-    title: 'Backend Engineering',
-    subtitle: 'Scalable Systems Deep Dive',
+    title: "Backend Engineering",
+    subtitle: "Scalable Systems Deep Dive",
     episodes: 32,
-    hours: '26h',
-    status: 'Ongoing',
+    hours: "26h",
+    status: "Ongoing",
     description:
-      'Deep-dive into Python backend development. APIs, databases, async programming, caching strategies, and scalability patterns used in top-tier companies.',
-    image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=480&h=680&fit=crop&auto=format',
-    tag: 'Ongoing',
-    tagColor: 'bg-brand',
-    views: '32K views',
+      "Deep-dive into Python backend development. APIs, databases, async programming, caching strategies, and scalability patterns used in top-tier companies.",
+    image:
+      "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=480&h=680&fit=crop&auto=format",
+    tag: "Ongoing",
+    tagColor: "bg-brand",
+    views: "32K views",
     featured: false,
   },
   {
     id: 3,
-    title: 'System Design',
-    subtitle: 'Think Like a Staff Engineer',
+    title: "System Design",
+    subtitle: "Think Like a Staff Engineer",
     episodes: 18,
-    hours: '14h',
-    status: 'Complete',
+    hours: "14h",
+    status: "Complete",
     description:
-      'How to design scalable, resilient systems. Real-world trade-offs, database selection, distributed caching, message queues, and 1:1 mock interview sessions.',
-    image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=480&h=680&fit=crop&auto=format',
-    tag: 'Top Rated',
-    tagColor: 'bg-violet-600',
-    views: '29K views',
+      "How to design scalable, resilient systems. Real-world trade-offs, database selection, distributed caching, message queues, and 1:1 mock interview sessions.",
+    image:
+      "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=480&h=680&fit=crop&auto=format",
+    tag: "Top Rated",
+    tagColor: "bg-violet-600",
+    views: "29K views",
     featured: false,
   },
   {
     id: 4,
-    title: 'LLM Bootcamp',
-    subtitle: 'GPT-4, Claude & Open Models',
+    title: "LLM Bootcamp",
+    subtitle: "GPT-4, Claude & Open Models",
     episodes: 16,
-    hours: '12h',
-    status: 'Complete',
+    hours: "12h",
+    status: "Complete",
     description:
-      'Build real projects with GPT-4, Claude, and open-source models. RAG, function calling, streaming, production deployment, and cost optimization.',
-    image: 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=480&h=680&fit=crop&auto=format',
-    tag: 'New',
-    tagColor: 'bg-teal-600',
-    views: '18K views',
+      "Build real projects with GPT-4, Claude, and open-source models. RAG, function calling, streaming, production deployment, and cost optimization.",
+    image:
+      "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=480&h=680&fit=crop&auto=format",
+    tag: "New",
+    tagColor: "bg-teal-600",
+    views: "18K views",
     featured: false,
   },
   {
     id: 5,
-    title: 'Docker Deep Dive',
-    subtitle: 'Containers to Orchestration',
+    title: "Docker Deep Dive",
+    subtitle: "Containers to Orchestration",
     episodes: 14,
-    hours: '10h',
-    status: 'Complete',
+    hours: "10h",
+    status: "Complete",
     description:
-      'Containerize applications like a pro. Multi-stage builds, networking, Docker Compose, and intro to Kubernetes — the complete container journey.',
-    image: 'https://images.unsplash.com/photo-1605810230434-7631ac76ec81?w=480&h=680&fit=crop&auto=format',
+      "Containerize applications like a pro. Multi-stage builds, networking, Docker Compose, and intro to Kubernetes — the complete container journey.",
+    image:
+      "https://images.unsplash.com/photo-1605810230434-7631ac76ec81?w=480&h=680&fit=crop&auto=format",
     tag: null,
-    tagColor: '',
-    views: '22K views',
+    tagColor: "",
+    views: "22K views",
     featured: false,
   },
   {
     id: 6,
-    title: 'Computer Vision',
-    subtitle: 'PyTorch & Real Deployments',
+    title: "Computer Vision",
+    subtitle: "PyTorch & Real Deployments",
     episodes: 20,
-    hours: '16h',
-    status: 'Complete',
+    hours: "16h",
+    status: "Complete",
     description:
-      'Object detection, semantic segmentation, and image classification with PyTorch and OpenCV. Includes real-world medical imaging and autonomous driving projects.',
-    image: 'https://images.unsplash.com/photo-1527430253228-e93688616381?w=480&h=680&fit=crop&auto=format',
+      "Object detection, semantic segmentation, and image classification with PyTorch and OpenCV. Includes real-world medical imaging and autonomous driving projects.",
+    image:
+      "https://images.unsplash.com/photo-1527430253228-e93688616381?w=480&h=680&fit=crop&auto=format",
     tag: null,
-    tagColor: '',
-    views: '15K views',
+    tagColor: "",
+    views: "15K views",
     featured: false,
   },
   {
     id: 7,
-    title: 'Prompt Engineering',
-    subtitle: 'Advanced Techniques',
+    title: "Prompt Engineering",
+    subtitle: "Advanced Techniques",
     episodes: 10,
-    hours: '7h',
-    status: 'Complete',
+    hours: "7h",
+    status: "Complete",
     description:
-      'Master chain-of-thought, few-shot, self-consistency, tree of thoughts, and automated prompt optimization using DSPy.',
-    image: 'https://images.unsplash.com/photo-1516116216624-53e697fedbea?w=480&h=680&fit=crop&auto=format',
+      "Master chain-of-thought, few-shot, self-consistency, tree of thoughts, and automated prompt optimization using DSPy.",
+    image:
+      "https://images.unsplash.com/photo-1516116216624-53e697fedbea?w=480&h=680&fit=crop&auto=format",
     tag: null,
-    tagColor: '',
-    views: '20K views',
+    tagColor: "",
+    views: "20K views",
     featured: false,
   },
   {
     id: 8,
-    title: 'Career Roadmap',
-    subtitle: 'Land Your Dream Role',
+    title: "Career Roadmap",
+    subtitle: "Land Your Dream Role",
     episodes: 12,
-    hours: '8h',
-    status: 'Ongoing',
+    hours: "8h",
+    status: "Ongoing",
     description:
-      'Resume crafting, technical interviews, system design rounds, and salary negotiation. Strategies that helped students land Google, Amazon, and Microsoft offers.',
-    image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=480&h=680&fit=crop&auto=format',
-    tag: 'Ongoing',
-    tagColor: 'bg-brand',
-    views: '25K views',
+      "Resume crafting, technical interviews, system design rounds, and salary negotiation. Strategies that helped students land Google, Amazon, and Microsoft offers.",
+    image:
+      "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=480&h=680&fit=crop&auto=format",
+    tag: "Ongoing",
+    tagColor: "bg-brand",
+    views: "25K views",
     featured: false,
   },
-]
+];
 
 export default function VideoSeries() {
-  const [hoveredId, setHoveredId] = useState<number | null>(null)
+  const [hoveredId, setHoveredId] = useState<number | null>(null);
 
-  const featured = series[0]
-  const rest = series.slice(1)
+  const featured = series[0];
+  const rest = series.slice(1);
 
   return (
     <section id="videos" className="py-24 bg-[#060a06] overflow-hidden">
@@ -141,11 +149,11 @@ export default function VideoSeries() {
             VIDEO SERIES
           </div>
           <h2 className="text-4xl sm:text-5xl font-extrabold text-white tracking-tight mb-4">
-            Educational{' '}
-            <span className="gradient-text">Series</span>
+            Educational <span className="gradient-text">Series</span>
           </h2>
           <p className="text-lg text-white/50 max-w-xl mx-auto">
-            Binge-worthy, deep-dive content that takes you from concept to production. Arabic &amp; English.
+            Binge-worthy, deep-dive content that takes you from concept to
+            production. Arabic &amp; English.
           </p>
         </div>
 
@@ -159,7 +167,7 @@ export default function VideoSeries() {
           {/* Featured poster — large */}
           <div
             className="lg:col-span-2 relative group cursor-pointer rounded-3xl overflow-hidden"
-            style={{ aspectRatio: '2/2.5' }}
+            style={{ aspectRatio: "2/2.5" }}
             onMouseEnter={() => setHoveredId(featured.id)}
             onMouseLeave={() => setHoveredId(null)}
           >
@@ -180,7 +188,9 @@ export default function VideoSeries() {
             </div>
 
             <div className="absolute bottom-0 left-0 right-0 p-5">
-              <h3 className="text-white font-extrabold text-xl mb-1">{featured.title}</h3>
+              <h3 className="text-white font-extrabold text-xl mb-1">
+                {featured.title}
+              </h3>
               <p className="text-white/70 text-sm mb-3">{featured.subtitle}</p>
               <div className="flex items-center gap-3 mb-4">
                 <span className="text-white/50 text-xs flex items-center gap-1">
@@ -230,14 +240,24 @@ export default function VideoSeries() {
               className="group flex items-center gap-4 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-brand/40 rounded-2xl p-5 cursor-pointer transition-all"
             >
               <div className="w-12 h-12 rounded-xl bg-brand/20 flex items-center justify-center flex-shrink-0 group-hover:bg-brand transition-colors">
-                <Play size={18} className="text-brand group-hover:text-white transition-colors fill-current" />
+                <Play
+                  size={18}
+                  className="text-brand group-hover:text-white transition-colors fill-current"
+                />
               </div>
               <div className="flex-1 min-w-0">
-                <div className="text-white text-sm font-semibold">{featured.title}</div>
+                <div className="text-white text-sm font-semibold">
+                  {featured.title}
+                </div>
                 <div className="text-white/50 text-sm">{featured.subtitle}</div>
-                <div className="text-white/40 text-xs mt-1 font-mono">Arabic &amp; English • Watch now</div>
+                <div className="text-white/40 text-xs mt-1 font-mono">
+                  Arabic &amp; English • Watch now
+                </div>
               </div>
-              <ChevronRight size={16} className="text-white/30 group-hover:text-brand transition-colors flex-shrink-0" />
+              <ChevronRight
+                size={16}
+                className="text-white/30 group-hover:text-brand transition-colors flex-shrink-0"
+              />
             </motion.a>
           </div>
         </motion.div>
@@ -252,7 +272,7 @@ export default function VideoSeries() {
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: i * 0.05 }}
               className="relative group cursor-pointer rounded-2xl overflow-hidden"
-              style={{ aspectRatio: '2/3' }}
+              style={{ aspectRatio: "2/3" }}
               onMouseEnter={() => setHoveredId(s.id)}
               onMouseLeave={() => setHoveredId(null)}
             >
@@ -265,15 +285,21 @@ export default function VideoSeries() {
 
               {s.tag && (
                 <div className="absolute top-2 left-2">
-                  <span className={`${s.tagColor} text-white text-[9px] font-bold px-1.5 py-0.5 rounded-full`}>
+                  <span
+                    className={`${s.tagColor} text-white text-[9px] font-bold px-1.5 py-0.5 rounded-full`}
+                  >
                     {s.tag}
                   </span>
                 </div>
               )}
 
               <div className="absolute bottom-0 left-0 right-0 p-2.5">
-                <h3 className="text-white font-bold text-[11px] leading-tight">{s.title}</h3>
-                <div className="text-white/50 text-[9px] mt-0.5 font-mono">{s.episodes} eps</div>
+                <h3 className="text-white font-bold text-[11px] leading-tight">
+                  {s.title}
+                </h3>
+                <div className="text-white/50 text-[9px] mt-0.5 font-mono">
+                  {s.episodes} eps
+                </div>
               </div>
 
               <AnimatePresence>
@@ -299,5 +325,5 @@ export default function VideoSeries() {
         </div>
       </div>
     </section>
-  )
+  );
 }

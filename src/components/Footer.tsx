@@ -1,33 +1,41 @@
-import { Link } from 'react-router-dom'
-import { Code2, Users, PlayCircle, Mail } from 'lucide-react'
+import { Link } from "react-router-dom";
+import { Code2, Users, PlayCircle, Mail } from "lucide-react";
 
 const links = {
   services: [
-    { label: 'AI Consulting', href: '/consulting' },
-    { label: 'Workshops', href: '/workshops' },
-    { label: 'Online Courses', href: '/courses' },
-    { label: 'Mentoring', href: '/mentoring' },
-    { label: 'Speaking', href: '/contact' },
+    { label: "AI Consulting", href: "/consulting" },
+    { label: "Workshops", href: "/workshops" },
+    { label: "Online Courses", href: "/courses" },
+    { label: "Mentoring", href: "/mentoring" },
+    { label: "Speaking", href: "/contact" },
   ],
   content: [
-    { label: 'Portfolio', href: '/portfolio' },
-    { label: 'Video Series', href: '/videos' },
-    { label: 'Articles', href: '/articles' },
-    { label: 'Research', href: '/about' },
+    { label: "Portfolio", href: "/portfolio" },
+    { label: "Video Series", href: "/videos" },
+    { label: "Articles", href: "/articles" },
+    { label: "Research", href: "/about" },
   ],
   connect: [
-    { label: 'Contact Me', href: '/contact' },
-    { label: 'Book a Call', href: '/contact' },
-    { label: 'Newsletter', href: '/contact' },
+    { label: "Contact Me", href: "/contact" },
+    { label: "Book a Call", href: "/contact" },
+    { label: "Newsletter", href: "/contact" },
   ],
-}
+};
 
 const socials = [
-  { icon: Code2, href: 'https://github.com/mohamedessamcs96', label: 'GitHub' },
-  { icon: Users, href: 'https://linkedin.com/in/mhmdessam96/', label: 'LinkedIn' },
-  { icon: PlayCircle, href: 'https://www.youtube.com/watch?v=yss5QplqsvU', label: 'YouTube' },
-  { icon: Mail, href: 'mailto:mhmd96.essam@gmail.com', label: 'Email' },
-]
+  { icon: Code2, href: "https://github.com/mohamedessamcs96", label: "GitHub" },
+  {
+    icon: Users,
+    href: "https://linkedin.com/in/mhmdessam96/",
+    label: "LinkedIn",
+  },
+  {
+    icon: PlayCircle,
+    href: "https://www.youtube.com/watch?v=yss5QplqsvU",
+    label: "YouTube",
+  },
+  { icon: Mail, href: "mailto:mhmd96.essam@gmail.com", label: "Email" },
+];
 
 export default function Footer() {
   return (
@@ -41,20 +49,27 @@ export default function Footer() {
                 ME
               </div>
               <div>
-                <div className="text-white font-bold text-sm">Mohamed Essam</div>
-                <div className="text-white/50 text-xs font-mono">AI Engineer & Consultant</div>
+                <div className="text-white font-bold text-sm">
+                  Mohamed Essam
+                </div>
+                <div className="text-white/50 text-xs font-mono">
+                  AI Engineer & Consultant
+                </div>
               </div>
             </div>
             <p className="text-sm leading-relaxed mb-6 max-w-xs">
-              Building AI-powered products, training engineering teams, and mentoring developers worldwide.
+              Building AI-powered products, training engineering teams, and
+              mentoring developers worldwide.
             </p>
             <div className="flex gap-3">
               {socials.map(({ icon: Icon, href, label }) => (
                 <a
                   key={label}
                   href={href}
-                  target={href.startsWith('http') ? '_blank' : undefined}
-                  rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                  target={href.startsWith("http") ? "_blank" : undefined}
+                  rel={
+                    href.startsWith("http") ? "noopener noreferrer" : undefined
+                  }
                   aria-label={label}
                   className="w-9 h-9 rounded-xl bg-white/5 hover:bg-brand/80 hover:text-white flex items-center justify-center transition-all duration-200 text-white/50"
                 >
@@ -66,7 +81,9 @@ export default function Footer() {
 
           {/* Links */}
           <div>
-            <h4 className="text-white text-sm font-bold mb-4 uppercase tracking-wider">Services</h4>
+            <h4 className="text-white text-sm font-bold mb-4 uppercase tracking-wider">
+              Services
+            </h4>
             <ul className="space-y-2.5">
               {links.services.map(({ label, href }) => (
                 <li key={label}>
@@ -81,7 +98,9 @@ export default function Footer() {
             </ul>
           </div>
           <div>
-            <h4 className="text-white text-sm font-bold mb-4 uppercase tracking-wider">Content</h4>
+            <h4 className="text-white text-sm font-bold mb-4 uppercase tracking-wider">
+              Content
+            </h4>
             <ul className="space-y-2.5">
               {links.content.map(({ label, href }) => (
                 <li key={label}>
@@ -96,7 +115,9 @@ export default function Footer() {
             </ul>
           </div>
           <div>
-            <h4 className="text-white text-sm font-bold mb-4 uppercase tracking-wider">Connect</h4>
+            <h4 className="text-white text-sm font-bold mb-4 uppercase tracking-wider">
+              Connect
+            </h4>
             <ul className="space-y-2.5">
               {links.connect.map(({ label, href }) => (
                 <li key={label}>
@@ -116,7 +137,9 @@ export default function Footer() {
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-accent opacity-75" />
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-brand-accent" />
                 </span>
-                <span className="text-xs text-brand-accent font-medium">Open to projects</span>
+                <span className="text-xs text-brand-accent font-medium">
+                  Open to projects
+                </span>
               </div>
             </div>
           </div>
@@ -132,5 +155,5 @@ export default function Footer() {
         </div>
       </div>
     </footer>
-  )
+  );
 }
